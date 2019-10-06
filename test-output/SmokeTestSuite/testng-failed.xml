@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [SmokeTestSuite]">
+  <listeners>
+    <listener class-name="samplereporter.HTMLReporter"/>
+    <listener class-name="utils.BaseTest"/>
+  </listeners>
+  <test thread-count="4" name="Negetive Test Case(failed)">
+    <parameter name="os" value="windows"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser_version" value="67.0.3396.99 (Official Build) (64-bit)"/>
+    <parameter name="expected_text" value="Hello There...!"/>
+    <groups>
+      <run>
+        <include name="Smoke"/>
+        <exclude name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="uitests.smoke.TestSutes">
+        <methods>
+          <include name="testMethod" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- uitests.smoke.TestSutes -->
+    </classes>
+  </test> <!-- Negetive Test Case(failed) -->
+</suite> <!-- Failed suite [SmokeTestSuite] -->

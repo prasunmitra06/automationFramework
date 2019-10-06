@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SmokeTestSuite" verbose="1" parallel="false" thread-count="4" configfailurepolicy="continue">
+
+	<listeners>
+		<listener class-name="samplereporter.HTMLReporter" />
+		<listener class-name="utils.BaseTest" />
+	</listeners>
+
+	<test name="Positive Test Case">
+
+		<parameter name="os" value="windows" />
+		<parameter name="os_version" value="10" />
+		<parameter name="browser" value="Chrome" />
+		<parameter name="browser_version" value="67.0.3396.99 (Official Build) (64-bit)" />
+		
+		<parameter name="expected_text" value="Hello There!"/>
+		
+		<groups>
+			<run>
+				<exclude name="regression" />
+				<include name="Smoke" />
+			</run>
+		</groups>
+
+		<classes>
+			<class name="uitests.smoke.TestSutes" />
+		</classes>
+
+	</test>
+	<test name="Negetive Test Case">
+
+		<parameter name="os" value="windows" />
+		<parameter name="os_version" value="10" />
+		<parameter name="browser" value="Chrome" />
+		<parameter name="browser_version" value="67.0.3396.99 (Official Build) (64-bit)" />
+		
+		<parameter name="expected_text" value="Hello There...!"/>
+		
+		<groups>
+			<run>
+				<exclude name="regression" />
+				<include name="Smoke" />
+			</run>
+		</groups>
+
+		<classes>
+			<class name="uitests.smoke.TestSutes" />
+		</classes>
+
+	</test>
+
+</suite>
